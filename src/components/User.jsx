@@ -1,19 +1,11 @@
-import { useNavigate } from "react-router-dom";
-
-export default function User({ user }) {
-  const navigate = useNavigate();
-
-  function handleClick() {
-    navigate(`/users/${user.id}`);
-  }
-
+export default function User({ name, image, title, mail }) {
   return (
-    <article className="user-card" onClick={handleClick}>
-      <img src={user.image || "https://placehold.co/600x400?text=Error+loading+image"} alt={user.name} />
-      <h2>{user.name}</h2>
-      <p className="title">{user.title}</p>
+    <article className="user-card">
+      <img src={image} alt={name} />
+      <h2>{name}</h2>
+      <p className="title">{title}</p>
       <p>
-        <a href={`mailto:${user.mail}`}>{user.mail}</a>
+        <a href={`mailto:${mail}`}>{mail}</a>
       </p>
     </article>
   );
